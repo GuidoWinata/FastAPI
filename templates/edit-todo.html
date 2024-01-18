@@ -1,0 +1,34 @@
+{% include 'layout.html' %}
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Let's edit your Todo!
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="form-group">
+                        <label>Title</label>5
+                        <input type="text" class="form-control" value="{{ todo.title }}" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea name="description" class="form-control" rows="3">{{ todo.description }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Priority</label>
+                        <select name="priority" class="form-control">
+                            <option {% if todo.priority == 1 %} selected="selected" {% endif %}>1</option>
+                            <option {% if todo.priority == 2 %} selected="selected" {% endif %}>2</option>
+                            <option {% if todo.priority == 3 %} selected="selected" {% endif %}>3</option>
+                            <option {% if todo.priority == 4 %} selected="selected" {% endif %}>4</option>
+                            <option {% if todo.priority == 5 %} selected="selected" {% endif %}>5</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Edit your Todo</button>
+                    <button onclick="window.location.href='/todos/delete/{{ todo.id }}'" type="button" class="btn btn-danger">Delete todos</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
